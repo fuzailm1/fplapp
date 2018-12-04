@@ -17,10 +17,12 @@ gem 'coffee-rails'
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder'
+gem 'bootstrap'
 gem 'bootstrap-table-rails'
 gem 'jquery-rails'
 gem 'rails-ujs'
 gem 'jquery-ui-rails'
+gem 'jquery-turbolinks'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
 
