@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
     require 'pp'
     url = "https://fantasy.premierleague.com/drf/bootstrap-static"
     buffer = open(url).read
-    @result = JSON.parse(buffer)
+    @all_data = JSON.parse(buffer)
   end
 
 end

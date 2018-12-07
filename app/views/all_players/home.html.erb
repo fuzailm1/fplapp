@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>All Players</title>
+
   </head>
 
   <body>
@@ -15,7 +16,9 @@
              data-sort-order="desc"
              data-pagination="true"
              data-page-size="10"
-             data-show-refresh="true">
+             data-show-refresh="true"
+             data-detail-view="true"
+             data-detail-formatter="fixtureFormatter">
           <thead class="thead-dark">
               <tr>
                   <th data-sortable="true" data-field="name">Name</th>
@@ -28,11 +31,26 @@
                   <th data-sortable="true" data-field="goals_scored" data-order="desc" data-align="center">Goals</th>
                   <th data-sortable="true" data-field="assists" data-order="desc" data-align="center">Assists</th>
                   <th data-sortable="true" data-field="clean_sheets" data-order="desc" data-align="center">Clean Sheets</th>
+                  <th data-field="#" data-align="center">Fixtures</th>
               </tr>
           </thead>
       </table>
     </div>
-
+    <script type="text/javascript">
+      function fixtureFormatter(value, row, index) {
+        var fetch_id = '#{row[:id]}';
+        var detail = $.ajax({
+            type: "GET",
+            url: 'all_player/get_fixtures',
+            async: false,
+            dataType: 'json',
+            data: {
+              "id" : fetch_id
+            }
+        }).responseJSON;
+        return detail
+      }
+    </script>
   </body>
 
 </html>
