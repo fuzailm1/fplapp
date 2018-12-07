@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
     require 'json'
     # http://stackoverflow.com/questions/9008847/what-is-difference-between-p-and-pp
     require 'pp'
-    url = "http://fantasy.premierleague.com/drf/bootstrap-static"
+    url = "https://fantasy.premierleague.com/drf/bootstrap-static"
     buffer = open(url).read
     @result = JSON.parse(buffer)
   end
