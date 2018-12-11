@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: MyString
+  gameweek: MyString
+  opp_name: MyString
+  opp_short_name: MyString
+  is_home: false
+  difficulty: MyString
+
+two:
+  id: MyString
+  gameweek: MyString
+  opp_name: MyString
+  opp_short_name: MyString
+  is_home: false
+  difficulty: MyString

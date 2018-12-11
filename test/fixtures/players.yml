@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: MyString
+  name: MyString
+  cost: MyString
+  selected_by: MyString
+  transfers_out_this_gw: MyString
+  transfers_in_this_gw: MyString
+  total_points: MyString
+  ppg: MyString
+  goals: MyString
+  assists: MyString
+  clean_sheets: MyString
+  xg: MyString
+  xa: MyString
+  bps: MyString
+
+two:
+  id: MyString
+  name: MyString
+  cost: MyString
+  selected_by: MyString
+  transfers_out_this_gw: MyString
+  transfers_in_this_gw: MyString
+  total_points: MyString
+  ppg: MyString
+  goals: MyString
+  assists: MyString
+  clean_sheets: MyString
+  xg: MyString
+  xa: MyString
+  bps: MyString
