@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_11_164049) do
+ActiveRecord::Schema.define(version: 2018_12_11_210005) do
 
   create_table "fixtures", id: :integer, default: nil, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "gameweek"
@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(version: 2018_12_11_164049) do
   end
 
   create_table "fixtures_players", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "fixture_id", null: false
-    t.bigint "player_id", null: false
+    t.integer "fixture_id", null: false
+    t.integer "player_id", null: false
     t.index ["fixture_id"], name: "index_fixtures_players_on_fixture_id"
     t.index ["player_id"], name: "index_fixtures_players_on_player_id"
   end
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 2018_12_11_164049) do
     t.string "bps"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "fixture_list"
   end
 
 end

@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
   root 'all_players#home'
-  get 'all_players/get_data'
+  get 'all_players/get_player_data'
+  get 'all_players/get_fixture_data'
+  get 'all_players/update_fixtures'
   get 'all_players/home' => 'all_players#home'
   get 'all_players/update_fixtures'
 

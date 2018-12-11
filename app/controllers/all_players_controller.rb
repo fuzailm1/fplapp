@@ -1,5 +1,5 @@
 class AllPlayersController < ApplicationController
-    before_action :get_all_players
+    before_action :get_all_players, only: %i[get_player_data]
 
     def get_player_data
       @player_data.each do |player|
@@ -19,7 +19,7 @@ class AllPlayersController < ApplicationController
       end
     end
 
-    def get_fixtures
+    def get_fixture_data
       Player.all.each do |player|
       get_fixtures player.id
       fixtures = Array.new
