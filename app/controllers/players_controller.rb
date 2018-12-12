@@ -1,5 +1,4 @@
 class PlayersController < ApplicationController
-  before_action :get_player_data
 
   def index
     all_players = Player.all
