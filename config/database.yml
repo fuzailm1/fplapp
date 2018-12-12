@@ -16,6 +16,7 @@ test:
 
 production:
   <<: *default
+  adapter: postgresql
   database: <%= ENV['DB_DATABASE'] || 'fpl_tactician_db' %>
   username: <%= ENV['DB_USERNAME'] || 'fpltactician'%>
   password: <%= ENV['DB_PASSWORD'] %>
