@@ -1,12 +1,12 @@
 class PlayersController < ApplicationController
+  before_action :get_player_data
 
   def index
     all_players = Player.all
     all_players.each do |player|
       player.fixture_list = ""
-      puts player.fixtures.first(5)
-      player.fixtures.first(5).each do |fixture|
-        player.fixture_list << (fixture.opp_short_name) << " "
+        Opposition.where(player_id: player.id)[0..4].each do |opposition|
+        player.fixture_list << (opposition.opp_short_name_string) << " "
       end
     end
     render json: all_players

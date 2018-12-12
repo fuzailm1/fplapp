@@ -10,42 +10,55 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_11_210005) do
+ActiveRecord::Schema.define(version: 2018_12_12_153613) do
 
-  create_table "fixtures", id: :integer, default: nil, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "gameweek"
+  create_table "fixtures", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "home_team"
+    t.integer "away_team"
+    t.integer "gameweek"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "oppositions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "fixture_id"
+    t.integer "team_id"
+    t.integer "gameweek"
     t.string "opp_name"
-    t.string "opp_short_name"
-    t.boolean "is_home"
-    t.string "difficulty"
+    t.string "opp_short_name_string"
+    t.integer "player_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["player_id"], name: "index_oppositions_on_player_id"
   end
 
-  create_table "fixtures_players", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "fixture_id", null: false
-    t.integer "player_id", null: false
-    t.index ["fixture_id"], name: "index_fixtures_players_on_fixture_id"
-    t.index ["player_id"], name: "index_fixtures_players_on_player_id"
-  end
-
-  create_table "players", id: :integer, default: nil, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "players", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
-    t.string "cost"
-    t.string "selected_by"
-    t.string "transfers_out_this_gw"
-    t.string "transfers_in_this_gw"
-    t.string "total_points"
-    t.string "ppg"
-    t.string "goals"
-    t.string "assists"
-    t.string "clean_sheets"
-    t.string "xg"
-    t.string "xa"
-    t.string "bps"
+    t.integer "team_id"
+    t.float "cost"
+    t.float "selected_by"
+    t.integer "transfers_out_this_gw"
+    t.integer "transfers_in_this_gw"
+    t.integer "points"
+    t.float "ppg"
+    t.integer "goals"
+    t.integer "assists"
+    t.integer "clean_sheets"
+    t.float "xg"
+    t.float "xa"
+    t.integer "bps"
+    t.string "fixture_list"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "fixture_list"
   end
 
+  create_table "teams", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name"
+    t.string "short_name"
+    t.integer "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "oppositions", "players"
 end

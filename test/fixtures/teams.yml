@@ -2,12 +2,12 @@
 
 one:
   id: 
-  home_team: 
-  away_team: 
-  gameweek: 
+  name: MyString
+  short_name: MyString
+  position: 
 
 two:
   id: 
-  home_team: 
-  away_team: 
-  gameweek: 
+  name: MyString
+  short_name: MyString
+  position: 

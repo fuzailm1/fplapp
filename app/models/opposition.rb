@@ -1,0 +1,2 @@
+class Opposition < ApplicationRecord
+end

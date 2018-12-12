@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fixture_id: 1
+  team_id: 1
+  gameweek: 1
+  opp_name: MyString
+  opp_short_name_string: MyString
+
+two:
+  fixture_id: 1
+  team_id: 1
+  gameweek: 1
+  opp_name: MyString
+  opp_short_name_string: MyString

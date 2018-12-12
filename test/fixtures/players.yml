@@ -1,33 +1,37 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  id: MyString
+  id: 1
   name: MyString
-  cost: MyString
-  selected_by: MyString
-  transfers_out_this_gw: MyString
-  transfers_in_this_gw: MyString
-  total_points: MyString
-  ppg: MyString
-  goals: MyString
-  assists: MyString
-  clean_sheets: MyString
-  xg: MyString
-  xa: MyString
-  bps: MyString
+  team_id: 1
+  cost: 1.5
+  selected_by: 1.5
+  transfers_out_this_gw: 1
+  transfers_in_this_gw: 1
+  points: 1
+  ppg: 1.5
+  goals: 1
+  assists: 1
+  clean_sheets: 1
+  xg: 1.5
+  xa: 1.5
+  bps: 1
+  fixture_list: MyString
 
 two:
-  id: MyString
+  id: 1
   name: MyString
-  cost: MyString
-  selected_by: MyString
-  transfers_out_this_gw: MyString
-  transfers_in_this_gw: MyString
-  total_points: MyString
-  ppg: MyString
-  goals: MyString
-  assists: MyString
-  clean_sheets: MyString
-  xg: MyString
-  xa: MyString
-  bps: MyString
+  team_id: 1
+  cost: 1.5
+  selected_by: 1.5
+  transfers_out_this_gw: 1
+  transfers_in_this_gw: 1
+  points: 1
+  ppg: 1.5
+  goals: 1
+  assists: 1
+  clean_sheets: 1
+  xg: 1.5
+  xa: 1.5
+  bps: 1
+  fixture_list: MyString
