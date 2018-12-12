@@ -4,7 +4,7 @@ class PlayersController < ApplicationController
     all_players = Player.all
     all_players.each do |player|
       player.fixture_list = ""
-        Opposition.where(player_id: player.id)[0..4].order('gameweek ASC')
+        Opposition.where(player_id: player.id).order('gameweek ASC')[0..4]
 .each do |opposition|
         player.fixture_list << (opposition.opp_short_name_string) << " "
       end
