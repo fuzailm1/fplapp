@@ -1,7 +1,10 @@
 class AllPlayersController < ApplicationController
-    before_action :get_player_data, only: :update_player_data
+    before_action :get_player_data, only: %i[update_player_data update_web_name]
     before_action :get_fixture_data, only: :update_fixture_data
     before_action :get_team_data, only: :update_team_data
+    before_action :get_understat_data, only: :update_understat_data
+
+
 
     def update_player_data
       @player_data.each do |player|
@@ -18,7 +21,15 @@ class AllPlayersController < ApplicationController
         player_data.goals = player["goals_scored"]
         player_data.assists = player["assists"]
         player_data.clean_sheets = player["clean_sheets"]
+        player_data.web_name = player["web_name"]
         player_data.save! unless Player.find_by(id: player_data.id)
+      end
+    end
+
+    def update_web_name
+      @player_data.each do |player|
+        player_data = Player.find_by(id: player["id"])
+        player_data.update(web_name: player["web_name"])
       end
     end
 
@@ -40,6 +51,13 @@ class AllPlayersController < ApplicationController
         team_data.name = team["name"]
         team_data.short_name = team["short_name"]
         team_data.save! unless Team.find_by(id: team_data.id)
+      end
+    end
+
+    def update_understat_data
+      @understat_data.each do |understat_player|
+        player_data = Player.where('name LIKE ?', understat_player["player_name"]).or(Player.where('web_name LIKE ?', understat_player["player_name"])).first
+        player_data.update!({xg: understat_player["xG"], xa: understat_player["xA"]}) unless player_data.nil?
       end
     end
 
@@ -116,6 +134,20 @@ class AllPlayersController < ApplicationController
       puts url
       buffer = open(url).read
       @opposition_data = JSON.parse(buffer)
+    end
+
+    def get_understat_data
+      require 'open-uri'
+      require 'json'
+      require 'pp'
+      require 'nokogiri'
+      url = "https://understat.com/league/EPL"
+      doc = Nokogiri::HTML(open(url))
+      block = doc.css('.block-content')
+      line = block[2].css('script')
+      line = "#{line.pop}"
+      jsonstring = "#{line[40..-14]}"
+      @understat_data = JSON.parse(eval('"' + jsonstring + '"'))
     end
 
 end

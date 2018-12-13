@@ -5,6 +5,11 @@ Rails.application.routes.draw do
   get 'all_players/update_team_data'
   get 'all_players/update_fixture_data'
   get 'all_players/update_opposition_data'
+  get 'all_players/update_understat_data'
+  get 'all_players/update_web_name'
+
+  get 'all_players/json_test'
+
   get 'all_players/home' => 'all_players#home'
 
   resources :players, only: :index
